@@ -1,0 +1,1 @@
+from model.adib_model2 import ask_agent, get_agent

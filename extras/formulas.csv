@@ -1,0 +1,16 @@
+Financial Ratio,Formula
+NPA Ratio,(Total NPA / Total Financing) * 100
+NPA Coverage Ratio,(Total Provisions for NPA / Total Non-performing Financing) * 100%
+NPA Coverage Ratio with Collaterals,(Total Provisions for NPA + Collateral Value for NPA) / Total Non-performing Financing * 100%
+T1 Ratio,(Tier 1 Capital / RWA) * 100
+CAR Ratio,(Total Capital / RWA) * 100
+Financing to Deposit Ratio,(Total Financing / Total Deposits) * 100
+Eligible Liquid Asset Ratio (ELAR),(Eligible Liquid Assets / Total Financing) * 100
+Cost-to-Income Ratio,Operating Expenses / Operating Income
+,
+,
+,
+NPA,Non performing financing
+RWA,Risk weighted assets
+Tier 1 Capital,Tier 1 sukuk
+Total Financing,Customer Financing
