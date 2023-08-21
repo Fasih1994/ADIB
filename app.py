@@ -22,7 +22,7 @@ with gr.Blocks() as demo:
         with gr.Column():pass
     chatbot = gr.Chatbot()
     msg = gr.Textbox()
-    clear = gr.Button("Clear")
+    clear = gr.Button("Clear",variant='stop',size='sm')
 
     def user(user_message, history):
         return "", history + [[user_message, None]]
