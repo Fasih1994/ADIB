@@ -29,7 +29,7 @@ with gr.Blocks() as demo:
     def bot(history):
         agent = get_agent(chat_history=history)
         result = ask_agent(agent=agent,query=history[-1][0])
-        bot_message = result['answer']
+        bot_message = result
         history[-1][1] = ""
         for character in bot_message:
             history[-1][1] += character
@@ -42,4 +42,4 @@ with gr.Blocks() as demo:
     clear.click(lambda: None, None, chatbot, queue=False)
     
 demo.queue()
-demo.launch(server_name='0.0.0.0', server_port=8080)
+demo.launch(server_name='0.0.0.0', server_port=8081)

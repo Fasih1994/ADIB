@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 embeddings = OpenAIEmbeddings()
-persist_directory = '/home/fasih/ADIB/chroma'
+persist_directory = '/home/fasih/ADIB/chroma2'
 
 vectordb = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
 print(vectordb._collection.count())
