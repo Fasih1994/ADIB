@@ -101,7 +101,7 @@ def get_agent(chat_history:list = None):
                     )
     )
 
-    llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613")
+    llm = ChatOpenAI(temperature=0, model=os.environ['MODEL'])
 
     agent = OpenAIFunctionsAgent(
                 llm=llm,
