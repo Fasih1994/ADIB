@@ -1,4 +1,5 @@
 import time
+import os 
 
 from dotenv import load_dotenv
 import gradio as gr
@@ -42,4 +43,4 @@ with gr.Blocks() as demo:
     clear.click(lambda: None, None, chatbot, queue=False)
     
 demo.queue()
-demo.launch(server_name='0.0.0.0', server_port=8081)
+demo.launch(server_name='0.0.0.0', server_port=os.environ['PORT'])
