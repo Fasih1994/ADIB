@@ -141,9 +141,10 @@ def ask_agent(agent, query):
 
     with get_openai_callback() as cb:
         response = agent.run(query)
-        # total_tokens = cb.total_tokens
+        total_tokens = cb.total_tokens
         # prompt_token = cb.prompt_tokens
         # completion_token = cb.completion_tokens
-        # total_cost = cb.total_cost
+        total_cost = cb.total_cost
+        print(f"Tokens {total_tokens} costs {total_cost}")
     # Return the response converted to a string.
     return str(response)
