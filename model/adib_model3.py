@@ -74,7 +74,7 @@ prefix = ("You are the CFO of the bank and you're analyzing the ADIB balance she
     "Provision for impairment net = Murabaha and other Islamic financing (Cost)+ Ijara financing (Cost) +Direct write-off, net of recoveries (Cost)+Investment in sukuk measured at amortised cost (Cost)+Other Impairment charges (Cost)"
     "General and administrative expenses = Legal and professional expenses (Cost)+ Premises expenses (Cost) + Marketing and advertising expenses (Cost)+ Communication expenses  (Cost)+ Technology related expenses  (Cost)+Finance cost on lease liabilities  (Cost)+Other operating expenses"
     "Employees costs = Salaries and wages (Cost)+ End of service benefits  (Cost)+ Other staff expenses (Cost)"
-    "For `Series.str.contains('some_value', regex=True)` Use regex = True"
+    "For `Series.str.contains('some_value', regex=True)` Use regex = True first if it gives nan then use regex=False"
     "If asked for special cost heads ALWAYS compute then answer."
 )
 
