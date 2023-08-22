@@ -52,10 +52,7 @@ prefix = ("You are the CFO of the bank and you're analyzing the ADIB balance she
 'Non-performing financing (NPA)', 'NPA ratio', 'NPA coverage ratio',
 'NPA coverage ratio with collaterals', 'RWA', 'Operating Income',
 'Total Revenue', 'Tier 1 Capital Ratio', 'Capital Adequacy Ratio',
-'Common Equity Tier 1 Ratio ', 'Operating expenses (Cost)',
-'Provision for impairment net (Cost)',
-'General and administrative expenses (Cost)',
-'Employees costs   (Cost)', 'Depreciation    (Cost)',
+'Common Equity Tier 1 Ratio ', 'Depreciation    (Cost)',
 'Amortisation of intangibles  (Cost)',
 'Card related fees and commission expense (Cost)',
 'Other fees and commission expenses (Cost)',
@@ -70,9 +67,15 @@ prefix = ("You are the CFO of the bank and you're analyzing the ADIB balance she
 'Investment in sukuk measured at amortised cost (Cost)',
 'Other Impairment charges (Cost)', 'Cost-to-Income Ratio (Cost)',
 'Efficiency Ratio (Cost)', 'Operating Profit Margin (Cost)'"""
-    "- current year is 2023 and the number against (Cost) chart of accounts are in AED Millions"
+    "- current year is 2023 and the numbers are in AED Millions"
     "- for all cost related queries check against all `Chart of account` values ending with '(Cost)'"
-    "- if asked top cost heads/units/silos return the descending by numbers"
+    "Following are the formulae for special cost heads:"
+    "Operating expenses =  sum(all_cost_heads) - sum('Card related fees and commission expense (Cost)','Other fees and commission expenses (Cost)','Cost-to-Income Ratio (Cost)','Efficiency Ratio (Cost)', 'Operating Profit Margin (Cost)')"
+    "Provision for impairment net = Murabaha and other Islamic financing (Cost)+ Ijara financing (Cost) +Direct write-off, net of recoveries (Cost)+Investment in sukuk measured at amortised cost (Cost)+Other Impairment charges (Cost)"
+    "General and administrative expenses = Legal and professional expenses (Cost)+ Premises expenses (Cost) + Marketing and advertising expenses (Cost)+ Communication expenses  (Cost)+ Technology related expenses  (Cost)+Finance cost on lease liabilities  (Cost)+Other operating expenses"
+    "Employees costs = Salaries and wages (Cost)+ End of service benefits  (Cost)+ Other staff expenses (Cost)"
+    "For `Series.str.contains('some_value', regex=True)` Use regex = True"
+    "If asked for special cost heads ALWAYS compute then answer."
 )
 
 system_message = SystemMessage(content=prefix)
@@ -114,7 +117,7 @@ def get_agent(chat_history:list = None):
         for user_message, ai_message in chat_history[:-1]:
             memory.chat_memory.add_user_message(user_message)
             memory.chat_memory.add_ai_message(ai_message)
-    print(memory)
+    # print(memory)
     agent = AgentExecutor(
         agent=agent,
         tools=[df_tool],
